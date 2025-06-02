@@ -5,18 +5,30 @@ namespace Ex04.Menus.Events
 {
     public class MenuItem
     {
+        public string Title { get; }
         private readonly List<MenuItem> r_SubItems = new List<MenuItem>();
         public event Action Selected;
-        public string Title { get; }
 
         public MenuItem(string i_Title)
         {
             Title = i_Title;
         }
 
-        public bool IsLeaf => r_SubItems.Count == 0;
+        public bool IsLeaf
+        {
+            get
+            {
+                return r_SubItems.Count == 0;
+            }
+        }
 
-        public IReadOnlyList<MenuItem> SubItems => r_SubItems.AsReadOnly();
+        public IReadOnlyList<MenuItem> SubItems
+        {
+            get
+            {
+                return r_SubItems.AsReadOnly();
+            }
+        }
 
         public void AddSubItem(MenuItem i_SubItem)
         {

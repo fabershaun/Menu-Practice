@@ -16,7 +16,6 @@ namespace Ex04.Menus.Test
             EventsMainMenu eventMainMenu = buildEventMenu();
           
             interfaceMainMenu.Show();
-            Console.Clear();
             eventMainMenu.Show();
         }
 
