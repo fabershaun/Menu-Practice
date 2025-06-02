@@ -13,14 +13,10 @@ namespace Ex04.Menus.Test
        public static void Main()
         {
             InterfacesMainMenu interfaceMainMenu = buildInterfaceMenu();
-            interfaceMainMenu.Show();
-
-            Console.Clear();
-            Console.WriteLine("Now continuing to event-based menu...");
-            Console.WriteLine("Press Enter to continue...");
-            Console.ReadKey();
-
             EventsMainMenu eventMainMenu = buildEventMenu();
+          
+            interfaceMainMenu.Show();
+            Console.Clear();
             eventMainMenu.Show();
         }
 
@@ -30,20 +26,16 @@ namespace Ex04.Menus.Test
 
             // First submenu for letters and version
             InterfacesMenuItem lettersMenu = new InterfacesMenuItem("Letters and Version");
-
-            InterfacesMenuItem showVersion = new InterfacesMenuItem("Show Version") { MenuAction = new ShowVersionAction() };
-
-            InterfacesMenuItem countLowercase = new InterfacesMenuItem("Count Lowercase Letters") { MenuAction = new CountLowerCaseAction() };
+            InterfacesMenuItem showVersion = new InterfacesMenuItem("Show Version") { ActionToExecute = new ShowVersionAction() };
+            InterfacesMenuItem countLowercase = new InterfacesMenuItem("Count Lowercase Letters") { ActionToExecute = new CountLowerCaseAction() };
 
             lettersMenu.AddSubItem(showVersion);
             lettersMenu.AddSubItem(countLowercase);
 
             // Second submenu for date and time
             InterfacesMenuItem dateTimeMenu = new InterfacesMenuItem("Show Current Date/Time");
-
-            InterfacesMenuItem showDate = new InterfacesMenuItem("Show Current Date") { MenuAction = new ShowDateAction() };
-
-            InterfacesMenuItem showTime = new InterfacesMenuItem("Show Current Time") { MenuAction = new ShowTimeAction() };
+            InterfacesMenuItem showDate = new InterfacesMenuItem("Show Current Date") { ActionToExecute = new ShowDateAction() };
+            InterfacesMenuItem showTime = new InterfacesMenuItem("Show Current Time") { ActionToExecute = new ShowTimeAction() };
 
             dateTimeMenu.AddSubItem(showDate);
             dateTimeMenu.AddSubItem(showTime);
@@ -62,7 +54,6 @@ namespace Ex04.Menus.Test
 
             // First submenu for date and time
             EventsMenuItem lettersMenu = new EventsMenuItem("Letters and Version");
-
             EventsMenuItem showVersion = new EventsMenuItem("Show Version");
             EventsMenuItem countLowercase = new EventsMenuItem("Count Lowercase Letters");    
 
@@ -74,7 +65,6 @@ namespace Ex04.Menus.Test
 
             // Second submenu for date and time
             EventsMenuItem dateTimeMenu = new EventsMenuItem("Show Current Date/Time");
-
             EventsMenuItem showDate = new EventsMenuItem("Show Current Date");
             EventsMenuItem showTime = new EventsMenuItem("Show Current Time");
 

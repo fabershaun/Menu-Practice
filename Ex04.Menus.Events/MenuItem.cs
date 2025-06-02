@@ -7,13 +7,12 @@ namespace Ex04.Menus.Events
     {
         private readonly List<MenuItem> r_SubItems = new List<MenuItem>();
         public event Action Selected;
+        public string Title { get; }
 
         public MenuItem(string i_Title)
         {
             Title = i_Title;
         }
-
-        public string Title { get; }
 
         public bool IsLeaf => r_SubItems.Count == 0;
 
@@ -37,7 +36,7 @@ namespace Ex04.Menus.Events
                     int userChoice = getValidateUserChoice();
                     isBackOrExitPressed = handleChoice(userChoice);
                 }
-                catch (Exception ex)
+                catch (FormatException ex)
                 {
                     Console.WriteLine(ex.Message);
                     Console.WriteLine("Press Enter to try again...");
