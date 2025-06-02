@@ -10,8 +10,6 @@ namespace Ex04.Menus.Test
         public void StartAction()
         {
             Console.WriteLine($"App Version: {k_AppVersion}");
-            Console.WriteLine("Press Enter to continue...");
-            Console.ReadLine();
         }
     }
 }

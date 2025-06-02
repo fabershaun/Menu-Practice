@@ -4,16 +4,11 @@ using System.Collections.Generic;
 namespace Ex04.Menus.Interfaces
 {
     // Represents a menu item that can have sub-items and an action associated with it
-    public class MenuItem
+    public class MenuItem(string i_Title)
     {
-        public readonly string r_Title;
+        public readonly string r_Title = i_Title;
         private readonly List<MenuItem> r_SubItems = new List<MenuItem>();
-        public IMenuActionable MenuAction { get; set; }     
-
-        public MenuItem(string i_Title)
-        {
-            r_Title = i_Title;
-        }
+        public IMenuActionable MenuAction { get; set; }
 
         public string Title => r_Title;
 
@@ -41,7 +36,7 @@ namespace Ex04.Menus.Interfaces
                 }
                 catch(Exception ex)
                 {
-                    Console.WriteLine(ex);
+                    Console.WriteLine(ex.Message);
                     Console.WriteLine("Press Enter to try again...");
                     Console.ReadLine();
                 }
@@ -98,6 +93,9 @@ namespace Ex04.Menus.Interfaces
                 {
                     Console.Clear();
                     selectedItem.MenuAction.StartAction();
+                    Console.WriteLine();
+                    Console.WriteLine("Press Enter to continue...");
+                    Console.ReadKey();
                 }
             }
 
