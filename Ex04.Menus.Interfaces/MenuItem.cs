@@ -8,6 +8,8 @@ namespace Ex04.Menus.Interfaces
     {
         public readonly string r_Title;
         private readonly List<MenuItem> r_SubItems = new List<MenuItem>();
+        public Menus.Test.ShowVersionAction Action;
+
         public IMenuActionable MenuAction { get; set; }     
 
         public MenuItem(string i_Title)
