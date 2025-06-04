@@ -49,7 +49,7 @@ namespace Ex04.Menus.Interfaces
                     int userChoice = getValidateUserChoice();
                     isBackOrExitPressed = handleChoice(userChoice);
                 }
-                catch(FormatException ex)
+                catch(Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                     Console.WriteLine("Press Enter to try again...");
