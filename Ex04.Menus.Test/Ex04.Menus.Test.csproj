@@ -43,6 +43,10 @@
     <Compile Include="ShowVersionAction.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ex04.Menus.Events\Ex04.Menus.Events.csproj">
+      <Project>{d139d47f-f158-4764-9f6d-9ecb23d64b1c}</Project>
+      <Name>Ex04.Menus.Events</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ex04.Menus.Interfaces\Ex04.Menus.Interfaces.csproj">
       <Project>{4c684835-14b8-4f60-b25a-0324fac76215}</Project>
       <Name>Ex04.Menus.Interfaces</Name>

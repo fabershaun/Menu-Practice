@@ -6,20 +6,30 @@ namespace Ex04.Menus.Interfaces
     // Represents a menu item that can have sub-items and an action associated with it
     public class MenuItem
     {
-        public readonly string r_Title;
+        public string Title { get; }
         private readonly List<MenuItem> r_SubItems = new List<MenuItem>();
-        public IMenuActionable MenuAction { get; set; }     
-
+        public IMenuActionable ActionToExecute { get; set; }
+        
         public MenuItem(string i_Title)
         {
-            r_Title = i_Title;
+            Title = i_Title;
         }
 
-        public string Title => r_Title;
+        public bool IsLeaf
+        {
+            get
+            {
+                return r_SubItems.Count == 0;
+            }
+        }
 
-        public bool IsLeaf => r_SubItems.Count == 0;
-
-        public IReadOnlyList<MenuItem> SubItems => r_SubItems.AsReadOnly();
+        public IReadOnlyList<MenuItem> SubItems
+        {
+            get
+            {
+                return r_SubItems.AsReadOnly();
+            }
+        }
 
         public void AddSubItem(MenuItem i_SubItem)
         {
@@ -41,7 +51,7 @@ namespace Ex04.Menus.Interfaces
                 }
                 catch(Exception ex)
                 {
-                    Console.WriteLine(ex);
+                    Console.WriteLine(ex.Message);
                     Console.WriteLine("Press Enter to try again...");
                     Console.ReadLine();
                 }
@@ -94,10 +104,13 @@ namespace Ex04.Menus.Interfaces
                 {
                     selectedItem.Show();
                 }
-                else if(selectedItem.MenuAction != null)
+                else if(selectedItem.ActionToExecute != null)
                 {
                     Console.Clear();
-                    selectedItem.MenuAction.StartAction();
+                    selectedItem.ActionToExecute.StartAction();
+                    Console.WriteLine();
+                    Console.WriteLine("Press Enter to continue...");
+                    Console.ReadKey();
                 }
             }
 
